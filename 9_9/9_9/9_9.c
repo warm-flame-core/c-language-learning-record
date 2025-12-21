@@ -23,9 +23,8 @@
 
 
 //µ¹Ðð°æ±¾
-int main()
+void multiplication(int a)
 {
-	int a = 9;
 	while (a)
 	{
 		int b = a;
@@ -37,5 +36,11 @@ int main()
 		printf("\n");
 		a--;
 	}
+}
+int main()
+{
+	int a = 0;
+	scanf("%d", &a);
+	multiplication(a);
 	return 0;
 }
