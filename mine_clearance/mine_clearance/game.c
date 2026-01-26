@@ -1,7 +1,7 @@
-#define _CRT_SECURE_NO_WARNINGS 1
+ï»¿#define _CRT_SECURE_NO_WARNINGS 1
 #include"game.h"
 
-//³õÊ¼»¯ÆåÅÌº¯Êı
+//åˆå§‹åŒ–æ£‹ç›˜å‡½æ•°
 void InitBorad(char arr[ROWS][COLS], int rows, int cols, char set)
 {
 	int i = 0;
@@ -15,30 +15,30 @@ void InitBorad(char arr[ROWS][COLS], int rows, int cols, char set)
 	}
 }
 
-//´òÓ¡ÆåÅÌº¯Êı
+//æ‰“å°æ£‹ç›˜å‡½æ•°
 void DisplayBorad(char arr[ROWS][COLS], int row, int col)
 {
 	int i = 0;
-	printf("------------É¨À×¿ªÊ¼--------------\n");
+	printf("------------æ‰«é›·--------------\n");
 	for (i = 0; i <= row; i++)
 	{
-		printf("%d ", i);
+		printf("%d - ", i);
 	}
 	printf("\n");
 
 	for (i = 1; i <= row; i++)
 	{
-		printf("%d ", i);
+		printf("%d | ", i);
 		int j = 0;
 		for (j = 1; j <= col; j++)
 		{
-			printf("%c ", arr[i][j]);
+			printf("%c   ", arr[i][j]);
 		}
 		printf("\n");
 	}
 }
 
-//²¼ÖÃÀ×º¯Êı
+//å¸ƒç½®é›·å‡½æ•°
 void SetMine(char arr[ROWS][COLS], int row, int col)
 {
 	int count = EASY_COUNT;
@@ -47,7 +47,7 @@ void SetMine(char arr[ROWS][COLS], int row, int col)
 		int x = rand() % row + 1;
 		int y = rand() % col + 1;
 		
-		if (arr[x][y] == '0');
+		if (arr[x][y] == '0')
 		{
 			arr[x][y] = '1';
 			count--;
@@ -64,13 +64,13 @@ static int GetMineCount(char arr[ROWS][COLS],int x,int y)
 		int j = 0;
 		for (j = y - 1; j <= y + 1; j++)
 		{
-			mine_count = arr[i][j] + '0';
+			mine_count += arr[i][j];
 		}
 	}
-	return mine_count;
+	return mine_count - '0' * 9;
 }
 
-//ÅÅÀ×º¯Êı
+//æ’é›·å‡½æ•°
 void FindMine(char mine[ROWS][COLS], char show[ROWS][COLS], int row, int col)
 {
 	int x = 0;
@@ -78,22 +78,26 @@ void FindMine(char mine[ROWS][COLS], char show[ROWS][COLS], int row, int col)
 	int over = 0;
 	while (over < row * col - EASY_COUNT)
 	{
-
-		printf("ÇëÊäÈëÒªÅÅ²éµÄÀ×µÄ×ø±ê>  ");
+		printf("(ä¸¤ä¸ªåæ ‡ä¹‹é—´è¯·ç”¨ç©ºæ ¼éš”å¼€,è¾“å…¥åè¯·æŒ‰å›è½¦)\n");
+		printf("è¯·è¾“å…¥è¦æ’æŸ¥çš„é›·çš„åæ ‡> ");
 		scanf("%d %d", &x, &y);
 		if (x > 0 && x <= row && y > 0 && y <= row)
 		{
 			if (mine[x][y] == '1')
 			{
-				printf("ÔËÆøÌ«ºÃÁË£¬Äã±»Õ¨ËÀÁË\n");
+				printf("\n\n\n");
+				printf("è¿æ°”å¤ªå¥½äº†ï¼Œä½ è¢«ç‚¸æ­»äº†\n");
+				printf("æ•°å­—1ä»£è¡¨é›·ï¼Œæ•°å­—0ä»£è¡¨ä¸æ˜¯é›·\n");
 				DisplayBorad(mine, ROW, COL);
+				printf("è¯·ç­‰å¾…åŠ è½½\n");
+				Sleep(5000);
 				break;
 			}
 			else
 			{
 				if (show[x][y] != '*')
 				{
-					printf("´Ë×ø±êÒÑ±»ÅÅ²é£¬ÇëÖØĞÂÊäÈë\n");
+					printf("æ­¤åæ ‡å·²è¢«æ’æŸ¥ï¼Œè¯·é‡æ–°è¾“å…¥\n");
 				}
 				else
 				{
@@ -107,12 +111,14 @@ void FindMine(char mine[ROWS][COLS], char show[ROWS][COLS], int row, int col)
 		}
 		else
 		{
-			printf("×ø±ê·Ç·¨£¬ÇëÖØĞÂÊäÈë\n");
+			printf("åæ ‡éæ³•ï¼Œè¯·é‡æ–°è¾“å…¥\n");
 		}
 	}
 	if (over == row * col - EASY_COUNT)
 	{
-		printf("ÅÅÍêÁË£¬È«ÊÇÔËÆø£¬Ã»ÓĞÊµÁ¦\n");
+		printf("æ’å®Œäº†ï¼Œå…¨æ˜¯è¿æ°”ï¼Œæ²¡æœ‰å®åŠ›\n");
 		DisplayBorad(mine, ROW, COL);
+		printf("è¯·ç­‰å¾…åŠ è½½");
+		Sleep(5000);
 	}
 }

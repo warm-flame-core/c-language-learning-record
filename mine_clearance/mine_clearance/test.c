@@ -5,8 +5,8 @@ void menu()
 {
 	printf("***************************\n");
 	printf("********   扫雷   *********\n");
-	printf("********  1.play **********\n");
-	printf("********  0.exit **********\n");
+	printf("********  1.play  **********\n");
+	printf("********  0.exit  **********\n");
 	printf("***************************\n");
 }
 
@@ -23,12 +23,12 @@ void game()  //扫雷游戏逻辑
 	SetMine(mine, ROW, COL);
 	
 	//打印棋盘
-	DisplayBorad(mine, ROW, COL);
-	DisplayBorad(show, ROW, COL);
+	//DisplayBorad(mine, ROW, COL);
+	//DisplayBorad(show, ROW, COL);
 
 	//开始排查雷
-	//DisplayBorad(show, ROW, COL);
-	//FindMine(mine, show, ROW, COL);
+	DisplayBorad(show, ROW, COL);
+	FindMine(mine, show, ROW, COL);
 }
 
 void test()
@@ -38,6 +38,7 @@ void test()
 	do
 	{
 		printf("请等待加载（2秒+…………………………………………）\n");
+		Sleep(2000);
 		menu();
 		printf("请选择（输入对应数字后按下enter）");
 		scanf("%d", &input);
