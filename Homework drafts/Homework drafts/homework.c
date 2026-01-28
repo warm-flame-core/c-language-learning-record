@@ -108,23 +108,161 @@
 //}
 
 
-#include<stdio.h>
-int math(int temp, int a)
+//#include<stdio.h>
+//int math(int temp, int a)
+//{
+//	return temp * 10 + a;
+//}
+//int main()
+//{
+//	int a = 0;
+//	scanf("%d", &a);
+//	int sum = 0;
+//	int temp = a;
+//	int count = 0;
+//	for (count = 1; count <= 5; count++)
+//	{
+//		temp = math(temp, a);
+//		sum += temp;
+//	}
+//	printf("%d", sum);
+//	return 0;
+//}
+
+
+
+
+
+//递归的方式实现求斐波那契数
+//#include<stdio.h>
+//int Fact(int n)
+//{
+//	if (n < 3)
+//		return 1;
+//	else
+//		return Fact(n - 1) + Fact(n - 2);
+//}
+//int Fit(int n)
+//{
+//	int a = 1;
+//	int b = 1;
+//	int c = 1;
+//	while (n>3)
+//	{
+//		c = a + b;
+//		a = b;
+//		b = c;
+//		n--;
+//	}
+//	return c;
+//}
+//int main()
+//{
+//	int n = 0;
+//	scanf("%d", &n);
+//	int ret1 = Fact(n);
+//	int ret2 = Fact(n);
+//	printf("%d\n", ret1);
+//	printf("%d\n", ret2);
+//	return 0;
+//}
+
+
+
+//使用递归实现n的k次方
+//#include <stdio.h>
+//long long Fit(int n, int k)
+//{
+//	if (k == 0) 
+//	{
+//		return 1;
+//	}
+//	if (k == 1)
+//		return n;
+//	return n * Fit(n, k - 1);
+//		
+//}
+//int main()
+//{
+//	int n = 0;
+//	int k = 0;
+//	scanf("%d %d", &n, &k);
+//	long long ret = Fit(n, k);
+//	printf("%d", ret);
+//	return 0;
+//}
+
+
+
+//计算一个数的每位之和（递归实现）
+//#include<stdio.h>
+//int sum = 0;
+//int Fib(int n)
+//{
+//	if (n > 9)
+//		Fib(n / 10);
+//	sum += n % 10;
+//	return sum;
+//}
+//int main()
+//{
+//	int n = 0;
+//	scanf("%d", &n);
+//	int ret = Fib(n);
+//	printf("%d", ret);
+//	return 0;
+//}
+
+
+
+//递归和非递归分别实现求n的阶乘（不考虑溢出的问题）
+//#include<stdio.h>
+//long long Fib(int n)
+//{
+//	if (n == 0)
+//		return 1;
+//	else
+//		return n * Fib(n - 1);
+//}
+//long long Fact(int n)
+//{
+//	int ret = 1;
+//	if (n == 0)
+//		return 1;
+//	else
+//	{
+//		while (n)
+//		{
+//			ret *= n;
+//			n--;
+//		}
+//	}
+//	return ret;
+//}
+//int main()
+//{
+//	int n = 0;
+//	scanf("%d", &n);
+//	long long ret1 = Fib(n);
+//	long long ret2 = Fact(n);
+//	printf("%lld %lld", ret1, ret2);
+//	return  0;
+//}
+
+
+
+//递归方式实现打印一个整数的每一位
+#include <stdio.h>
+void Print(int n)
 {
-	return temp * 10 + a;
+	if (n > 9)
+		Print(n / 10);
+	printf("%d ", n % 10);
 }
 int main()
 {
-	int a = 0;
-	scanf("%d", &a);
-	int sum = 0;
-	int temp = a;
-	int count = 0;
-	for (count = 1; count <= 5; count++)
-	{
-		temp = math(temp, a);
-		sum += temp;
-	}
-	printf("%d", sum);
+	int n = 0;
+	scanf("%d", &n);
+	Print(n);
 	return 0;
 }
