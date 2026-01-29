@@ -23,7 +23,7 @@ void game()  //扫雷游戏逻辑
 	SetMine(mine, ROW, COL);
 	
 	//打印棋盘
-	DisplayBorad(mine, ROW, COL);
+	//DisplayBorad(mine, ROW, COL);
 	//DisplayBorad(show, ROW, COL);
 
 	//开始排查雷

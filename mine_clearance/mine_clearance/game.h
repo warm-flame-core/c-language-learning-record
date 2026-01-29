@@ -1,14 +1,15 @@
 #pragma once
 #include<stdio.h>
 #include<stdlib.h>
+#include<Windows.h>
 #include<time.h>
 
-#define ROW 9
-#define COL 9
+#define ROW 9		//定义行数
+#define COL 9		//定义列数
 
 #define ROWS ROW+2
 #define COLS COL+2
-#define EASY_COUNT 79
+#define EASY_COUNT 10		//定义雷数
 
 //声明函数
 
