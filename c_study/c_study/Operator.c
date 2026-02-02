@@ -56,3 +56,73 @@
 //
 //    return 0;
 //}
+
+//#include <stdio.h>
+//int i;
+//int main()
+//{
+//    i--;
+//    if (i > sizeof(i))
+//    {
+//        printf(">\n");
+//    }
+//    else
+//    {
+//        printf("<\n");
+//    }
+//    return 0;
+//}
+
+
+
+//在一个整型数组中，只有一个数字出现一次，其他数组都是成对出现的，请找出那个只出现一次的数字。
+//
+//例如：
+//
+//数组中有：1 2 3 4 5 1 2 3 4，只有5出现一次，其他数字都出现2次，找出5
+//#include<stdio.h>
+//int main()
+//{
+//	int arr[] = { 1,1,2,3,4,2,4,2,4,5,7,8,6,9,9 };
+//	int sz = sizeof(arr) / sizeof(arr[0]);
+//	int i = 0;
+//	for (i = 0; i < sz; i++)
+//	{
+//		int j = 0;
+//		int win = 0;
+//		for (j = 0; j < sz; j++)
+//		{
+//			if (arr[i] == arr[j])
+//			{
+//				win++;
+//			}
+//		}
+//		if (win == 1)
+//			break;
+//	}
+//	printf("%d\n", arr[i]);
+//	return 0;
+//}
+
+
+//获取一个整数二进制序列中所有的偶数位和奇数位，分别打印出二进制序列
+//#include <stdio.h>
+//int main()
+//{
+//	int n = 0;
+//	scanf("%d", &n);
+//	printf("奇数位是：");
+//	int i = 0;
+//	for (i = 31; i >= 1; i -= 2)
+//	{
+//		printf("%d", (n >> i) & 1);
+//	}
+//	printf("\n");
+//	printf("偶数位是：");
+//	int j = 0;
+//	for (j = 30; j >= 0; j -= 2)
+//	{
+//		printf("%d", (n >> j) & 1);
+//	}
+//	return 0;
+//}
