@@ -1,13 +1,14 @@
 #define _CRT_SECURE_NO_WARNINGS 1
-#include<stdio.h>
+
 
 //最简单的递归程序，但是会导致栈溢出
-//int main()
-//{
-//	printf("Hello World\n");
-//	main();
-//	return 0;
-//}
+#include<stdio.h>
+int main()
+{
+	printf("Hello World\n");
+	main();
+	return 0;
+}
 
 //递归的方式求n！
 //int Fact(int n)

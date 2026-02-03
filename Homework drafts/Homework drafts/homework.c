@@ -252,17 +252,39 @@
 
 
 //递归方式实现打印一个整数的每一位
-#include <stdio.h>
-void Print(int n)
+//#include <stdio.h>
+//void Print(int n)
+//{
+//	if (n > 9)
+//		Print(n / 10);
+//	printf("%d ", n % 10);
+//}
+//int main()
+//{
+//	int n = 0;
+//	scanf("%d", &n);
+//	Print(n);
+//	return 0;
+//}
+
+
+#include<stdio.h>
+int count = 0;
+int Fact(int n)
 {
-	if (n > 9)
-		Print(n / 10);
-	printf("%d ", n % 10);
+	if (n == 3)
+		count++;
+	if (n < 3)
+		return 1;
+	else
+		return Fact(n - 1) + Fact(n - 2);
 }
 int main()
 {
 	int n = 0;
 	scanf("%d", &n);
-	Print(n);
+	int ret = Fact(n);
+	printf("%d\n", ret);
+	printf("count = %d\n", count);
 	return 0;
 }
