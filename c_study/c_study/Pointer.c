@@ -78,3 +78,72 @@
 //	}
 //	return 0;
 //}
+
+
+//const修饰变量
+//#include <stdio.h>
+//int main()
+//{
+//	int n = 10;
+//	int m = 20;
+//	const int* const p = &n;
+//	*p = 20;
+//	p = &m;
+//	return 0;
+//}
+
+
+//assert断言
+//#include <stdio.h>
+//#include <assert.h>
+//int main()
+//{
+//	int* p = NULL;
+//	assert(p != NULL);
+//	printf("hehe\n");
+//	return 0;
+//}
+
+
+//strlen实现
+//#include <stdio.h>
+//#include <assert.h>
+//#include <string.h>
+//size_t my_strlen(const char* str)
+//{
+//	size_t count = 0;
+//	assert(str);
+//	while (*str)
+//	{
+//		count++;
+//		str++;
+//	}
+//	return count;
+//}
+//int main()
+//{
+//	char arr[] = { "abcdef" };
+//	size_t a = my_strlen(arr);
+//	printf("%zu\n", a);
+//	return 0;
+//}
+
+
+//传址调用：写一个函数交换两个整形的值
+#include <stdio.h>
+void swap(int* px, int* py)
+{
+	int t = *px;
+	*px = *py;
+	*py = t;
+}
+int main()
+{
+	int a = 0;
+	int b = 0;
+	scanf("%d %d", &a, &b);
+	printf("交换前：a=%d b=%d\n", a, b);
+	swap(&a, &b);
+	printf("交换后：a=%d b=%d\n", a, b);
+	return 0;
+}
