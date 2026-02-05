@@ -46,3 +46,35 @@
 //	printf("%zd\n", sizeof(double*));
 //	return 0;
 //}
+
+
+//指针类型决定了指针向前或者向后多大距离
+//#include <stdio.h>
+//int main()
+//{
+//	int a = 10;
+//	char* pc = (char*)&a;
+//	int* pi = &a;
+//
+//	printf("%p\n", &a);
+//	printf("%p\n", pc);
+//	printf("%p\n", pc+1);
+//	printf("%p\n", pi);
+//	printf("%p\n", pi+1);
+//	return 0;
+//}
+
+
+//用指针遍历数组
+//#include <stdio.h>
+//int main()
+//{
+//	int arr[10] = { 0,1,2,3,4,5,6,7,8,9 };
+//	int* p = arr;
+//	int i = 0;
+//	for (i = 0; i < 10; i++)
+//	{
+//		printf("%d ", *(p + i));
+//	}
+//	return 0;
+//}
