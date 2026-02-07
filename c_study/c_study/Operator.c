@@ -126,3 +126,15 @@
 //	}
 //	return 0;
 //}
+
+
+#include <stdio.h>
+int main()
+{
+	int n = 3;
+	int m = 5;
+	printf("%d\n", ~m);
+	return 0;
+//       0101
+//结果为:1010   , 即为6
+}
