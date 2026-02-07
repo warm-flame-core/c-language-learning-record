@@ -268,23 +268,50 @@
 //}
 
 
+//#include<stdio.h>
+//int count = 0;
+//int Fact(int n)
+//{
+//	if (n == 3)
+//		count++;
+//	if (n < 3)
+//		return 1;
+//	else
+//		return Fact(n - 1) + Fact(n - 2);
+//}
+//int main()
+//{
+//	int n = 0;
+//	scanf("%d", &n);
+//	int ret = Fact(n);
+//	printf("%d\n", ret);
+//	printf("count = %d\n", count);
+//	return 0;
+//}
+
+
 #include<stdio.h>
-int count = 0;
-int Fact(int n)
+int fact(int n)
 {
-	if (n == 3)
-		count++;
-	if (n < 3)
+	if (n == 0)
 		return 1;
 	else
-		return Fact(n - 1) + Fact(n - 2);
+		return n * fact(n - 1);
+}
+int factsum(int n)
+{
+	if (n == 0)
+		return 1;  
+	if (n == 1)
+		return 1;
+	return factsum(n - 1) + fact(n);
 }
 int main()
 {
 	int n = 0;
 	scanf("%d", &n);
-	int ret = Fact(n);
-	printf("%d\n", ret);
-	printf("count = %d\n", count);
-	return 0;
+	int a = fact(n);
+	int b = factsum(n);
+	printf("fact(%d)=%d\n", n, a);
+	printf("sum(%d)=%d\n", n, b);
 }

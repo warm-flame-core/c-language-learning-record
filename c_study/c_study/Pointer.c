@@ -130,20 +130,55 @@
 
 
 //传址调用：写一个函数交换两个整形的值
-#include <stdio.h>
-void swap(int* px, int* py)
-{
-	int t = *px;
-	*px = *py;
-	*py = t;
-}
-int main()
-{
-	int a = 0;
-	int b = 0;
-	scanf("%d %d", &a, &b);
-	printf("交换前：a=%d b=%d\n", a, b);
-	swap(&a, &b);
-	printf("交换后：a=%d b=%d\n", a, b);
-	return 0;
-}
+//#include <stdio.h>
+//void swap(int* px, int* py)
+//{
+//	int t = *px;
+//	*px = *py;
+//	*py = t;
+//}
+//int main()
+//{
+//	int a = 0;
+//	int b = 0;
+//	scanf("%d %d", &a, &b);
+//	printf("交换前：a=%d b=%d\n", a, b);
+//	swap(&a, &b);
+//	printf("交换后：a=%d b=%d\n", a, b);
+//	return 0;
+//}
+
+
+//取出整个数组和数组名为首元素的地址
+//#include <stdio.h>
+//int main()
+//{
+//	int arr[10] = { 0,1.2,3,4,5,6,7,8,9 };
+//	printf("&arr[0]=%p\n", &arr[0]);
+//	printf("arr    =%p\n", arr);
+//	printf("arr+1  =%p\n", arr+1);
+//	printf("&arr   =%p\n", &arr);
+//	printf("&arr+1 =%p\n", &arr+1);
+//	return 0;
+//}
+
+
+//使用指针访问数组
+//#include <stdio.h>
+//int main()
+//{
+//	int arr[10] = { 0 };
+//	int i = 0;
+//	int sz = sizeof(arr) / sizeof(arr[0]);
+//	int* p = arr;
+//	for (i = 0; i < 10; i++)
+//	{
+//		scanf("%d ", p + i);
+//	}
+//	for (i = 0; i < 10; i++)
+//	{
+//		printf("%d ", *(p + i));
+//	}
+//	return 0;
+//}
+
