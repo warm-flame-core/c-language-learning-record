@@ -182,3 +182,123 @@
 //	return 0;
 //}
 
+
+//冒泡排序
+//#include <stdio.h>
+//void bubble_sort(int arr[], int sz)//
+//{
+//	int i = 0;
+//	for (i = 0; i < sz - 1; i++)
+//	{
+//		int flag = 1;
+//		int j = 0;
+//		for (j = 0; j < sz - i - 1; j++)
+//		{
+//			if (arr[j] > arr[j + 1])
+//			{
+//				flag = 0;
+//				int tmp = arr[j];
+//				arr[j] = arr[j + 1];
+//				arr[j + 1] = tmp;
+//			}
+//		}
+//		if (flag == 1)
+//			break;
+//	}
+//}
+//
+//int main()
+//{
+//	int arr[10] = { 9,8,7,4,5,6,3,2,1,0 };
+//	int sz = sizeof(arr) / sizeof(arr[0]);
+//	bubble_sort(arr, sz);
+//	int i = 0;
+//	for (i = 0; i < sz; i++)
+//	{
+//		printf("%d ", arr[i]);
+//	}
+//	return 0;
+//}
+
+
+//二级指针
+//#include <stdio.h>
+//int main()
+//{
+//	int a = 10;
+//	int* pa = &a;
+//	int** ppa = &pa;
+//	**ppa = 30;
+//	printf("%d\n", a);
+//	return 0;
+//}
+
+
+//指针数组模拟二级指针
+//#include <stdio.h>
+//int main()
+//{
+//	int arr1[5] = { 1,2,3,4,5 };
+//	int arr2[5] = { 2,3,4,5,6 };
+//	int arr3[5] = { 3,4,5,6,7 };
+//	int* parr[3] = { arr1,arr2,arr3 };
+//	for (int i = 0; i < 3; i++)
+//	{
+//		for (int j = 0; j < 5; j++)
+//		{
+//			printf("%d ", parr[i][j]);
+//		}
+//		printf("\n");
+//	}
+//	return 0;
+//}
+
+
+//字符指针变量
+//#include <stdio.h>
+//int main()
+//{
+//	char* p = "Hello";
+//	printf("%c\n", *p);
+//	return 0;
+//}
+
+
+//数组指针变量
+//#include <stdio.h>
+//void test(int (*p)[5], int r, int c)
+//{
+//	int i = 0;
+//	int j = 0;
+//	for (i = 0; i < r; i++)
+//	{
+//		for (j = 0; j < c; j++)
+//		{
+//			printf("%d ", *(*(p + i) + j));  //等价于arr[i][j]
+//		}
+//		printf("\n");
+//	}
+//}
+//int main()
+//{
+//	int arr[3][5] = { {1,2,3,4,5}, {2,3,4,5,6},{3,4,5,6,7} };
+//	test(arr, 3, 5);
+//	return 0;
+//}
+
+
+//函数指针变量
+//#include <stdio.h>
+//int add(int x, int y)
+//{
+//	return x + y;
+//}
+//int main()
+//{
+//	int a = 10;
+//	int b = 30;
+//	int (*pf)(int, int) = add;
+//	int r = pf(a, b);
+//	printf("%d\n", r);
+//	return 0;
+//}
