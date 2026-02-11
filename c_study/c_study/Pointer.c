@@ -302,3 +302,43 @@
 //	printf("%d\n", r);
 //	return 0;
 //}
+
+
+//typedef关键字与#define
+//#define PINT int*
+//typedef int* pint;
+//int main()
+//{
+//	PINT p1, p2;
+//	pint p3, p4;
+//	int* p5, p6;
+//	//int*与#defin不可以连续定义，要用typedef
+//	return 0;
+//}
+
+
+//数组指针重命名
+//#include<stdio.h>
+//int main()
+//{
+//	typedef int(*parr)[5];
+//	int arr[5] = { 0 };
+//	int(*p)[5] = &arr;
+//	parr p1 = arr;
+//	return 0;
+//}
+//
+//
+//函数指针重命名
+//#include <stdio.h>
+//typedef int(*pf)(int, int);
+//int add(int x, int y)
+//{
+//	return x + y;
+//}
+//int main()
+//{
+//	int(*pf1)(int, int) = add;
+//	pf pf2 = add;
+//	return 0;
+//}
