@@ -342,3 +342,36 @@
 //	pf pf2 = add;
 //	return 0;
 //}
+
+
+//简单计算器实现
+#include <stdio.h>
+int main()
+{
+	int input = 0;
+	printf("请选择要进行的操作");
+	do
+	{
+		switch (input)
+		{
+		case 1:
+			printf("加法运算\n");
+			break;
+		case 2:
+			printf("减法运算\n");
+			break;
+		case 3:
+			printf("乘法运算\n");
+			break;
+		case 4:
+			printf("除法运算\n");
+			break;
+		case 0:
+			printf("退出计算器\n");
+			break;
+		default:
+			printf("输入错误，请重新选择");
+		}
+	} while (input);
+	return 0;
+}
