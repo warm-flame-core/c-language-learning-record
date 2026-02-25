@@ -344,34 +344,245 @@
 //}
 
 
-//简单计算器实现
+//简单计算器实现,用函数指针数组
+//#include <stdio.h>
+//
+//int add(int a, int b)
+//{
+//	return a + b;
+//}
+//int sub(int a, int b)
+//{
+//	return a - b;
+//}
+//int mul(int a, int b)
+//{
+//	return a * b;
+//}
+//int div(int a, int b)
+//{
+//	return a / b;
+//}
+//int main()
+//{
+//	int x, y;
+//	int input = 1;
+//	int ret = 0;
+//	int (*p[5])(int, int) = { NULL,add,sub,mul,div };
+//	do
+//	{
+//		printf("请选择要进行的操作\n");
+//		printf("*************************\n");
+//		printf("***1.add        2.sub****\n");
+//		printf("***3.mul        4.div****\n");
+//		printf("***0.exit*****************\n");
+//		printf("*************************\n");
+//		printf("请选择：");
+//		scanf("%d", &input);
+//		if (input > 0 && input < 5)
+//		{
+//			printf("请输入两个操作数：");
+//			scanf("%d %d", &x, &y);
+//			ret = (*p[input])(x, y);
+//			printf("%d\n", ret);
+//		}
+//		else if (input == 0)
+//		{
+//			printf("退出计算器\n");
+//		}
+//		else
+//		{
+//			printf("输入有误\n");
+//		}
+//	} while (input);
+//	return 0;
+//}
+
+
+//使用qsort函数排序数据
+//#include <stdio.h>
+//#include <stdlib.h>
+//#include <string.h>
+//
+//int arr[10] = { 1,3,5,7,9,2,4,6,8,0 };
+//int sz = sizeof(arr) / sizeof(arr[0]);
+//
+//struct Stu
+//{
+//	char name[20];
+//	int age;
+//};
+////int int_cmp(const void* p1, const void* p2)
+////{
+////	return *(int*)p1 - *(int*)p2;
+////}
+////void test1()
+////{
+////	qsort(arr, sz, sizeof(int), int_cmp);
+////}
+//int cmp_stu_by_name(const void* p1, const void* p2)
+//{
+//	return strcmp(((struct Stu*)p1)->name, ((struct Stu*)p2)->name);
+//}
+//void test2()
+//{
+//	struct Stu s[] = { {"zhangsan",18},{"lisi",15},{"wangwu",20} };
+//	int sz = sizeof(s) / sizeof(s[0]);
+//	qsort(s, sz, sizeof(s[0]), cmp_stu_by_name);
+//}
+//void print_arr() 
+//{
+//	int i = 0;
+//	for (i = 0; i < sz; i++)
+//	{
+//		printf("%d ", arr[i]);
+//	}
+//}
+//int main()
+//{
+//	//test1();	//排序整形数据
+//	test2();	//按名字排序结构体数据
+//	//print_arr();
+//	return 0;
+//}
+
+
+//写一个函数，让字符串逆序打印
+//#include <stdio.h>
+//#include<string.h>
+//int main()
+//{
+//	char s[10001] = {0};
+//	fgets(s, sizeof(s), stdin);
+//	size_t len = strlen(s);
+//	if (len > 0 && s[len - 1] == '\n') 
+//	{
+//		s[len - 1] = '\0';
+//		len--; 
+//	}
+//	char* left = s;
+//	char* right = s + len - 1;
+//	while (left < right)
+//	{
+//		char temp = *left;
+//		*left = *right;
+//		*right = temp;
+//		*left++;
+//		*right--;
+//	}
+//	printf("%s", s);
+//	return 0;
+//}
+
+
+//字符串左旋
+//#include <stdio.h>
+//#include <string.h>
+//
+//void left_rotate(char s[], int k) {
+//    if (k <= 0) return;
+//        int len = 0;
+//    while (s[len] != '\0') {
+//        len++;
+//    }
+//    if (len == 0) return; 
+//    k = k % len;
+//    if (k == 0) return; 
+//    char temp[10001] = { 0 };
+//    for (int i = 0; i < k; i++) {
+//        temp[i] = s[i];
+//    }
+//    for (int i = 0; i < len - k; i++) {
+//        s[i] = s[i + k];
+//    }
+//    for (int i = 0; i < k; i++) {
+//        s[len - k + i] = temp[i];
+//    }
+//}
+//
+//int main() {
+//    char s[10001] = { 0 }; 
+//    fgets(s, sizeof(s), stdin);
+//    int len = 0;
+//    while (s[len] != '\0') {
+//        len++;
+//    }
+//    if (len > 0 && s[len - 1] == '\n') {
+//        s[len - 1] = '\0';
+//    }
+//    int k = 1;
+//    left_rotate(s, k);
+//    printf("%s\n", s);
+//    return 0;
+//}
+
+
+//模拟实现库函数strlen
+//#include <stdio.h>
+//int my_strlen(const char* p1)
+//{
+//	int count = 0;
+//	while (*p1)
+//	{
+//		count++;
+//		p1++;
+//	}
+//	return count;
+//}
+//int main()
+//{
+//	int len = my_strlen("abcdefghi");
+//	printf("%d", len);
+//	return 0;
+//}
+
+
+//输入一个整数数组，实现一个函数，
+//来调整该数组中数字的顺序使得数组中所有的奇数位于数组的前半部分，
+//所有偶数位于数组的后半部分。
 #include <stdio.h>
-int main()
+void adjust(int arr[], int sz) 
 {
-	int input = 0;
-	printf("请选择要进行的操作");
-	do
+	int left = 0;
+	int right = sz - 1;
+
+	while (left < right) 
 	{
-		switch (input)
+
+		while (left < right && arr[left] % 2 != 0) 
 		{
-		case 1:
-			printf("加法运算\n");
-			break;
-		case 2:
-			printf("减法运算\n");
-			break;
-		case 3:
-			printf("乘法运算\n");
-			break;
-		case 4:
-			printf("除法运算\n");
-			break;
-		case 0:
-			printf("退出计算器\n");
-			break;
-		default:
-			printf("输入错误，请重新选择");
+			left++;
 		}
-	} while (input);
+		while (left < right && arr[right] % 2 == 0) 
+		{
+			right--;
+		}
+		// 交换
+		if (left < right) {
+			int temp = arr[left];
+			arr[left] = arr[right];
+			arr[right] = temp;
+		}
+	}
+}
+void print_array(int arr[], int sz) {
+	for (int i = 0; i < sz; i++) {
+		printf("%d ", arr[i]);
+	}
+	printf("\n");
+}
+
+int main() {
+	int arr[10] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 0 };
+	int sz = sizeof(arr) / sizeof(arr[0]);
+
+	printf("调整前：");
+	print_array(arr, sz);
+
+	adjust(arr, sz);
+
+	printf("调整后：");
+	print_array(arr, sz);
+
 	return 0;
 }
