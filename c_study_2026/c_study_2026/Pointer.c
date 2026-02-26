@@ -540,49 +540,207 @@
 //输入一个整数数组，实现一个函数，
 //来调整该数组中数字的顺序使得数组中所有的奇数位于数组的前半部分，
 //所有偶数位于数组的后半部分。
-#include <stdio.h>
-void adjust(int arr[], int sz) 
-{
-	int left = 0;
-	int right = sz - 1;
+//#include <stdio.h>
+//void adjust(int arr[], int sz) 
+//{
+//	int left = 0;
+//	int right = sz - 1;
+//
+//	while (left < right) 
+//	{
+//
+//		while (left < right && arr[left] % 2 != 0) 
+//		{
+//			left++;
+//		}
+//		while (left < right && arr[right] % 2 == 0) 
+//		{
+//			right--;
+//		}
+//		// 交换
+//		if (left < right) {
+//			int temp = arr[left];
+//			arr[left] = arr[right];
+//			arr[right] = temp;
+//		}
+//	}
+//}
+//void print_array(int arr[], int sz) {
+//	for (int i = 0; i < sz; i++) {
+//		printf("%d ", arr[i]);
+//	}
+//	printf("\n");
+//}
+//
+//int main() {
+//	int arr[10] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 0 };
+//	int sz = sizeof(arr) / sizeof(arr[0]);
+//
+//	printf("调整前：");
+//	print_array(arr, sz);
+//
+//	adjust(arr, sz);
+//
+//	printf("调整后：");
+//	print_array(arr, sz);
+//
+//	return 0;
+//}
 
-	while (left < right) 
-	{
 
-		while (left < right && arr[left] % 2 != 0) 
-		{
-			left++;
-		}
-		while (left < right && arr[right] % 2 == 0) 
-		{
-			right--;
-		}
-		// 交换
-		if (left < right) {
-			int temp = arr[left];
-			arr[left] = arr[right];
-			arr[right] = temp;
-		}
-	}
-}
-void print_array(int arr[], int sz) {
-	for (int i = 0; i < sz; i++) {
-		printf("%d ", arr[i]);
-	}
-	printf("\n");
-}
+//使用指针打印数组内容
+//#include <stdio.h>
+//int main()
+//{
+//	int arr[10] = { 0,1,2,3,4,5,6,7,8,9 };
+//	int* p = arr;
+//	int i = 0;
+//	for (i = 0; i < 10; i++)
+//	{
+//		printf("%d ", *(p + i));
+//	}
+//	return 0;
+//}
 
-int main() {
-	int arr[10] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 0 };
-	int sz = sizeof(arr) / sizeof(arr[0]);
 
-	printf("调整前：");
-	print_array(arr, sz);
+//写一个函数，判断一个字符串是否为另外一个字符串旋转之后的字符串。
+//#include <stdio.h>
+//int get_str_length(const char* s) 
+//{
+//    int len = 0;
+//    while (s[len] != '\0') {
+//        len++;
+//    }
+//    return len;
+//}
+//
+//int is_substring(const char* main_str, const char* sub) 
+//{
+//    int main_len = get_str_length(main_str);
+//    int sub_len = get_str_length(sub);
+//    if (sub_len == 0 || sub_len > main_len) 
+//    {
+//        return 0;
+//    }
+//    for (int i = 0; i <= main_len - sub_len; i++) 
+//    {
+//        int match = 1; 
+//        for (int j = 0; j < sub_len; j++) 
+//        {
+//            if (main_str[i + j] != sub[j]) 
+//            {
+//                match = 0;
+//                break; 
+//            }
+//        }
+//        if (match == 1) 
+//        {
+//            return 1; 
+//        }
+//    }
+//    return 0; 
+//}
+//
+//
+//int is_rotated_string(const char* s1, const char* s2) 
+//{
+//    int len1 = get_str_length(s1);
+//    int len2 = get_str_length(s2);
+//    if (len1 != len2 || len1 == 0) 
+//    {
+//        return 0;
+//    }
+//    char temp[20002] = { 0 }; 
+//    int idx = 0;
+//    for (int i = 0; i < len1; i++) 
+//    {
+//        temp[idx++] = s1[i];
+//    }
+//  
+//    for (int i = 0; i < len1; i++) 
+//    {
+//        temp[idx++] = s1[i];
+//    }
+//    temp[idx] = '\0';
+//    return is_substring(temp, s2);
+//}
+//
+//int main() {
+//    char s1[10001] = { 0 }, s2[10001] = { 0 };
+//    printf("请输入字符串s1：");
+//    fgets(s1, sizeof(s1), stdin);
+//    printf("请输入字符串s2：");
+//    fgets(s2, sizeof(s2), stdin);
+//    int len1 = get_str_length(s1);
+//    if (len1 > 0 && s1[len1 - 1] == '\n') 
+//    {
+//        s1[len1 - 1] = '\0';
+//    }
+//    int len2 = get_str_length(s2);
+//    if (len2 > 0 && s2[len2 - 1] == '\n') 
+//    {
+//        s2[len2 - 1] = '\0';
+//    }
+//    int result = is_rotated_string(s1, s2);
+//    printf("判断结果：%d\n", result);
+//
+//    return 0;
+//}
 
-	adjust(arr, sz);
 
-	printf("调整后：");
-	print_array(arr, sz);
+//杨辉三角
+//#include <stdio.h>
+//#define col 10
+//int main()
+//{
+//	int i = 0;
+//	char arr[col][col] = { 0 };
+//	for (int i = 0; i < col; i++) 
+//	{
+//		arr[i][0] = 1;
+//		arr[i][i] = 1;
+//		for (int j = 1; j < i; j++) 
+//		{
+//			arr[i][j] = arr[i - 1][j - 1] + arr[i - 1][j];
+//		}
+//	}
+//	int a = 0;
+//	for (a = 0; a < col; a++)
+//	{
+//		int b = 0;
+//		for (b = 0; b < col; b++)
+//		{
+//			printf("%5d  ", arr[a][b]);
+//		}
+//		printf("\n");
+//	}
+//	return 0;
+//}
 
-	return 0;
-}
+
+//#include <stdio.h>
+//int main()
+//{
+//	int arr[] = { 1,2,3,4,5,1,2,3,4,6 };
+//	int sz = sizeof(arr) / sizeof(arr[0]);
+//	int i = 0;
+//	int* p = arr;
+//	int a = 0;
+//	int b = 0;
+//	for (i = 0; i < sz; i++)
+//	{
+//		int flag = 0;
+//		int j = 0;
+//		for (j = 0; j < sz - i - 1; j++)
+//		{
+//			if (*(p + i+j) != *p)
+//			{
+//				break;
+//			}
+//		}
+//		a = *p;
+//		b = *(p + i + j);
+//	}
+//	printf("%d %d", a, b);
+//	return 0;
+//}
