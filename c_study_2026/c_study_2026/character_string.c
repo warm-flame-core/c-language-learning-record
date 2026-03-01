@@ -307,3 +307,16 @@
 //	printf("%s\n", arr1);
 //	return 0;
 //}
+
+
+//strerror函数
+//#include <errno.h>
+//int main()
+//{
+//	int i = 0;
+//	for (i = 0; i < 100; i++)
+//	{
+//		printf("%d: %s\n", i, strerror(i));
+//	}
+//	return 0;
+//}
