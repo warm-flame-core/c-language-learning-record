@@ -50,11 +50,30 @@
 
 
 //枚举
-enum Sex
+/*enum Sex
 {
 	MALE=5,
 	FEMALE,
 	SECRET
 };
 
-enum Sex clr = FEMALE;//在C语言中可以赋值，在C++中不可以
+enum Sex clr = FEMALE;*/    //在C语言中可以赋值，在C++中不可以
+
+struct S3
+{
+	double d;
+	char c;
+	int i;
+};
+struct S4
+{
+	char c1;
+	struct S3 s3;
+	double d;
+};
+int main()
+{
+	printf("%zu\n", sizeof(struct S3));
+	printf("%zu\n", sizeof(struct S4));
+	return 0;
+}
