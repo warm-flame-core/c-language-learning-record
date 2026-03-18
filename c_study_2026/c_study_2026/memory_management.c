@@ -136,3 +136,42 @@
 //	p = NULL;
 //	return 0;
 //}
+
+
+//使用malloc函数模拟开辟一个3*5的整型二维数组，开辟好后，使用二维数组的下标访问形式，访问空间。
+int main()
+{
+	//开辟
+	int** p = (int**)malloc(3 * sizeof(int*));
+	int i = 0;
+	for (i = 0; i < 3; i++)
+	{
+		p[i] = (int*)malloc(5 * sizeof(int));
+	}
+	//使用
+	int j = 0;
+	for (i = 0; i < 3; i++)
+	{
+		for (j = 0; j < 5; j++)
+		{
+			p[i][j] = 5 * i + j;
+		}
+	}
+	for (i = 0; i < 3; i++)
+	{
+		for (j = 0; j < 5; j++)
+		{
+			printf("%d ", p[i][j]);
+		}
+		printf("\n");
+	}
+	for (i = 0; i < 3; i++)
+	{
+		free(p[i]);
+	}
+	free(p);
+	p = NULL;
+
+
+	return 0;
+}

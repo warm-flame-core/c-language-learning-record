@@ -92,29 +92,57 @@
 
 
 //文件的随机读写
+//int main()
+//{
+//	FILE* fp = fopen("./../test.txt", "r");
+//	if (fp == NULL)
+//	{
+//		perror("fopen");
+//		return 1;
+//	}
+//	//读取所有字母
+//	int i = 0;
+//	for (i = 0; i < 24; i++)
+//	{
+//		int c = (char)fgetc(fp);
+//		printf("%c", c);
+//	}
+//	rewind(fp);
+//	int c = (char)fgetc(fp);
+//	printf("%c", c);
+//	fseek(fp, 3, SEEK_SET);
+//	c = (char)fgetc(fp);
+//	printf("%c", c);
+//	fflush(fp);
+//	fclose(fp);
+//	fp == NULL;
+//	return 0;
+//}
+
+
+//写一个程序拷贝文件
 int main()
 {
-	FILE* fp = fopen("./../test.txt", "r");
-	if (fp == NULL)
+	FILE* fp1 = fopen("test.txt", "r");
+	if (fp1 == NULL)
 	{
-		perror("fopen");
+		perror("fopen1");
 		return 1;
 	}
-	//读取所有字母
-	int i = 0;
-	for (i = 0; i < 24; i++)
+	FILE* fp2 = fopen("data_copy.txt", "w");
+	if (fp2 == NULL)
 	{
-		int c = (char)fgetc(fp);
-		printf("%c", c);
+		perror("fopen2");
+		return 1;
 	}
-	rewind(fp);
-	int c = (char)fgetc(fp);
-	printf("%c", c);
-	fseek(fp, 3, SEEK_SET);
-	c = (char)fgetc(fp);
-	printf("%c", c);
-	fflush(fp);
-	fclose(fp);
-	fp == NULL;
+	int ch = 0;
+	while ((ch = fgetc(fp1)) != EOF)
+	{
+		fputc(ch, fp2);
+	}
+	fclose(fp1);
+	fp1 == NULL;
+	fclose(fp2);
+	fp2 == NULL;
 	return 0;
 }
