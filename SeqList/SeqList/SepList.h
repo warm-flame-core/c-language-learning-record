@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 #include <stdio.h>
 #include <stdlib.h>
 #include <assert.h>
@@ -36,3 +36,12 @@ void SLPopFront(SL* ps);
 
 //顺序表的检查与扩容
 void SLCheckCapacity(SL* ps);
+
+//顺序表的指定位置之前插入数据
+void SLInsert(SL* ps, int pos, SLDataType x);
+
+//顺序表的指定位置删除数据
+void SLErase(SL* ps, int pos);
+
+//顺序表的查找数据
+int SLFind(SL* ps, SLDataType x);

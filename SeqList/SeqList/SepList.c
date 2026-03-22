@@ -81,3 +81,41 @@ void SLPopFront(SL* ps)
 	}
 	ps->size--;
 }
+
+void SLInsert(SL* ps, int pos, SLDataType x)
+{
+	assert(ps);
+	assert(pos >= 0 && pos <= ps->size);
+	SLCheckCapacity(ps);
+	int i = 0;
+	for (i = ps->size; i > pos; i--)
+	{
+		ps->arr[i] = ps->arr[i - 1];
+	}
+	ps->arr[pos] = x;
+	ps->size++;
+}
+
+void SLErase(SL* ps, int pos)
+{
+	assert(ps);
+	assert(pos >= 0 && pos < ps->size);
+	int i = 0;
+	for (i = pos; i < ps->size - 1; i++)
+	{
+		ps->arr[i] = ps->arr[i + 1];
+	}
+	ps->size - 1;
+}
+
+//顺序表的查找数据
+int SLFind(SL* ps, SLDataType x)
+{
+	int i = 0;
+	for (i = 0; i < ps->size; i++)
+	{
+		if (ps->arr[i] == x)
+			return i;
+	}
+	return -1;
+}
