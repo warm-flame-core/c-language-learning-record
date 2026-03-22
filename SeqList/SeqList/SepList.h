@@ -1,0 +1,38 @@
+﻿#pragma once
+#include <stdio.h>
+#include <stdlib.h>
+#include <assert.h>
+typedef int SLDataType;
+#define N 7
+//静态顺序表
+//struct SepList
+//{
+//	int arr[7];
+//	int size;
+//};
+
+//动态顺序表
+typedef struct SepList
+{
+	SLDataType* arr;
+	int size;		//有效数据个数
+	int capacity;	//空间大小
+}SL;
+
+//顺序表的初始化
+void SLInit(SL* ps);
+
+//顺序表的销毁
+void SLDestroy(SL* ps);
+
+//顺序表的打印
+void SLPrint(const SL* ps);
+
+//顺序表的头插/尾插，x为插入的数据
+void SLPushBack(SL* ps, SLDataType x);
+void SLPopBack(SL* ps);
+void SLPushFront(SL* ps, SLDataType x);
+void SLPopFront(SL* ps);
+
+//顺序表的检查与扩容
+void SLCheckCapacity(SL* ps);
