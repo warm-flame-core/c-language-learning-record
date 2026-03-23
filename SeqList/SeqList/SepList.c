@@ -15,15 +15,15 @@ void SLDestroy(SL* ps)
 	ps->capacity = ps->size = 0;
 }
 
-void SLPrint(SL ps)
-{
-	int i = 0;
-	for (i = 0; i < ps.size ; i++)
-	{
-		printf("%d ", ps.arr[i]);
-	}
-	printf("\n");
-}
+//void SLPrint(SL ps)
+//{
+//	int i = 0;
+//	for (i = 0; i < ps.size ; i++)
+//	{
+//		printf("%d ", ps.arr[i]);
+//	}
+//	printf("\n");
+//}
 
 void SLCheckCapacity(SL* ps)
 {
@@ -109,13 +109,13 @@ void SLErase(SL* ps, int pos)
 }
 
 //顺序表的查找数据
-int SLFind(SL* ps, SLDataType x)
-{
-	int i = 0;
-	for (i = 0; i < ps->size; i++)
-	{
-		if (ps->arr[i] == x)
-			return i;
-	}
-	return -1;
-}
+//int SLFind(SL* ps, SLDataType x)
+//{
+//	int i = 0;
+//	for (i = 0; i < ps->size; i++)
+//	{
+//		if (ps->arr[i] == x)
+//			return i;
+//	}
+//	return -1;
+//}

@@ -2,7 +2,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <assert.h>
-typedef int SLDataType;
+#include "Contact.h"
+typedef PenoInfo SLDataType;
 #define N 7
 //静态顺序表
 //struct SepList
@@ -26,7 +27,7 @@ void SLInit(SL* ps);
 void SLDestroy(SL* ps);
 
 //顺序表的打印
-void SLPrint(const SL* ps);
+//void SLPrint(const SL* ps);
 
 //顺序表的头插/尾插，x为插入的数据
 void SLPushBack(SL* ps, SLDataType x);
@@ -44,4 +45,4 @@ void SLInsert(SL* ps, int pos, SLDataType x);
 void SLErase(SL* ps, int pos);
 
 //顺序表的查找数据
-int SLFind(SL* ps, SLDataType x);
+//int SLFind(SL* ps, SLDataType x);
