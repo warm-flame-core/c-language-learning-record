@@ -1,4 +1,4 @@
-#include "SepList.h"
+﻿#include "SepList.h"
 void SLInit(SL* ps)
 {
 	ps->arr = NULL;

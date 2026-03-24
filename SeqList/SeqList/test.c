@@ -1,3 +1,4 @@
+#define _CRT_SECURE_NO_WARNINGS 1
 #include "SepList.h"
 #include "Contact.h"
 //void test()
@@ -40,13 +41,42 @@ void menu()
 {
 	printf("******************通讯录*********************\n");
 	printf("**********1.添加联系人  2.删除联系人***********\n");
-	printf("**********3.查找联系人  4.删除联系人***********\n");
+	printf("**********3.查找联系人  4.修改联系人***********\n");
 	printf("**********5.展示联系人  0.退出******************\n");
 	printf("*********************************************\n");
 	printf("*********************************************\n");
 }
 int main()
 {
-	menu();
+	Contact con;
+	ContactInit(&con);
+	int input = 0;
+	do
+	{
+		menu();
+		scanf("%d", &input);
+		switch (input)
+		{
+		case 1:
+			ContactAdd(&con);
+			break;
+		case 2:
+			ContactDel(&con);
+			break;
+		case 3:
+			ContactFind(&con);
+			break;
+		case 4:
+			ContactModify(&con);
+			break;
+		case 5:
+			ContactShow(&con);
+			break;
+		default:
+			printf("请重新选择");
+			break;
+		}
+	} while (input);
+	ContactDestroy(&con);
 	return 0;
 }

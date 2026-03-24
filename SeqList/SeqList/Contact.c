@@ -1,4 +1,4 @@
-#define _CRT_SECURE_NO_WARNINGS 1
+﻿#define _CRT_SECURE_NO_WARNINGS 1
 #include "SepList.h"
 #include "Contact.h"
 
@@ -51,7 +51,6 @@ void ContactDel(Contact* con)
 {
     char name[NAME_MAX];
     printf("请输入要删除联系人的姓名:");
-    // 修复：数组名无需&
     scanf("%s", name);
     int result = FindByName(con, name); 
     if (result >= 0)
@@ -99,7 +98,7 @@ void ContactModify(Contact* con)
 // 显示所有联系人
 void ContactShow(Contact* con)
 {
-    printf("%-8s %-4s %-4s %-11s %-20s\n", "姓名", "性别", "年龄", "电话", "地址"); // 优化格式，避免挤在一起
+    printf("%-8s %-4s %-4s %-11s %-20s\n", "姓名", "性别", "年龄", "电话", "地址");
     for (int i = 0; i < con->size; i++)
     {
         printf("%-8s %-4s %-4d %-11s %-20s\n",
@@ -117,12 +116,10 @@ void ContactFind(Contact* con)
 {
     char name[NAME_MAX];
     printf("请输入要查找联系人的姓名:");
-    // 修复：数组名无需&
     scanf("%s", name);
-    int result = FindByName(con, name); // 修复拼写错误：reasult → result
+    int result = FindByName(con, name);
     if (result >= 0)
     {
-        // 优化格式，和显示函数保持一致
         printf("%-8s %-4s %-4d %-11s %-20s\n",
             con->arr[result].name,
             con->arr[result].gender,
