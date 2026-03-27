@@ -31,9 +31,7 @@ void test2()
 	SLTPrint(plist);
 	SLTPushBack(&plist, 4);
 	SLTPrint(plist);
-	SLTPushFront(&plist, 6);
-	SLTPrint(plist);
-	SLTPopBack(&plist);
+	/*SLTPopBack(&plist);
 	SLTPrint(plist);
 	SLTPopFront(&plist);
 	SLTPrint(plist);
@@ -42,7 +40,23 @@ void test2()
 	SLTPopFront(&plist);
 	SLTPrint(plist);
 	SLTPopFront(&plist);
+	SLTPrint(plist);*/
+	/*SLTNode* find = SLTFind(plist, 6);
+	SLTErase(&plist, find);
+	SLTPrint(plist);*/
+
+	/*SLTNode* find = SLTFind(plist, 1);
+	SLTInsert(&plist, find, 5);
+	SLTPrint(plist);*/
+	SLTNode* find = SLTFind(plist, 4);
+	/*SLTInsertAfter(find, 5);
+	SLTPrint(plist);*/
+
+	SLTEraseAfter(find);
 	SLTPrint(plist);
+
+	/*if (find != NULL)
+		printf("找到了\n");*/
 }
 int main()
 {

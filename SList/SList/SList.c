@@ -75,19 +75,105 @@ void SLTPopBack(SLTNode** phead)
 	}
 }
 
-void SLTPopFront(SLTNode** phead)
+void SLTPopFront(SLTNode** pphead)
 {
-	if ((*phead)->next == NULL)
+	//一个节点和多个节点的两种情况
+	if ((*pphead)->next == NULL)
 	{
-		free(*phead);
-		*phead = NULL;
+		free(*pphead);
+		*pphead = NULL;
 	}
 	else
 	{
-		SLTNode* ptail = (*phead)->next;
-		SLTNode* psev = *phead;
-		*phead = ptail;
+		SLTNode* ptail = (*pphead)->next;
+		SLTNode* psev = *pphead;
+		*pphead = ptail;
 		free(psev);
 		psev = NULL;
 	}
+}
+
+SLTNode* SLTFind(SLTNode* phead, SLTDatetype x)
+{
+	assert(phead);
+	SLTNode* ptail = phead;
+	while (ptail)
+	{
+		if (ptail->data == x)
+			return ptail;
+		ptail = ptail->next;
+	}
+	return NULL;
+}
+
+void SLTInsert(SLTNode** pphead, SLTNode* pos, SLTDatetype x)
+{
+	if (*pphead == pos)
+	{
+		SLTPushFront(pphead, x);
+	}
+	else
+	{
+		SLTNode* newnode = SLTBuyNode(x);
+		SLTNode* ptail = *pphead;
+		while (ptail->next != pos)
+		{
+			ptail = ptail->next;
+		}
+		newnode->next = pos;
+		ptail->next = newnode;
+	}
+}
+
+void SLTInsertAfter(SLTNode* pos, SLTDatetype x)
+{
+	SLTNode* newnode = SLTBuyNode(x);
+	newnode->next = pos->next;
+	pos->next = newnode;
+}
+
+void SLTErase(SLTNode** pphead, SLTNode* pos)
+{
+	assert(pphead && *pphead);
+	if ((*pphead) == pos)
+	{
+		SLTPopFront(pphead);
+	}
+	else
+	{
+		SLTNode* ptail = *pphead;
+		SLTNode* del = pos;
+		while (ptail->next != del)
+		{
+			ptail = ptail->next;
+		}
+		ptail->next = del->next;
+		free(del);
+		del = NULL;
+	}
+}
+
+void SLTEraseAfter(SLTNode* pos)
+{
+	assert(pos && pos->next);
+	SLTNode* del = pos->next;
+	//pos del del->next
+	pos->next = del->next;
+	free(del);
+	del = NULL;
+}
+
+void SListDesTroy(SLTNode** pphead)
+{
+	assert(pphead && *pphead);
+
+	SLTNode* pcur = *pphead;
+	while (pcur)
+	{
+		SLTNode* next = pcur->next;
+		free(pcur);
+		pcur = next;
+	}
+	//pcur
+	*pphead = NULL;
 }
