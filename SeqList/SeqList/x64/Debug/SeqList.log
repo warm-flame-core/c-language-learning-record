@@ -1,0 +1,7 @@
+﻿  Contact.c
+  SepList.c
+E:\Cache\c-language-learning-record\SeqList\SeqList\Contact.c(42,13): warning C4013: “strcmp”未定义；假设外部返回 int
+E:\Cache\c-language-learning-record\SeqList\SeqList\SepList.c(108,11): warning C4552: ”-“: 未使用表达式结果
+  test.c
+  正在生成代码...
+  SeqList.vcxproj -> E:\Cache\c-language-learning-record\SeqList\x64\Debug\SeqList.exe

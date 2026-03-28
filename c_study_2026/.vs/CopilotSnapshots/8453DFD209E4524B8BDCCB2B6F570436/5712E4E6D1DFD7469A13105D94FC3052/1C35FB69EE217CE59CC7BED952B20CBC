@@ -1,0 +1,62 @@
+﻿#define _CRT_SECURE_NO_WARNINGS 1
+// character classification functions
+#include <stdio.h>
+#include <ctype.h>
+//int main()
+//{
+//	int c = isdigit('a');
+//	printf("%d", c);
+//	return 0;
+//}
+
+
+#include <string.h>
+//// convert lowercase letters in a string to uppercase; leave others unchanged
+//int main()
+//{
+//	char arr[] = { "I am a Stduent" };
+//	size_t len = strlen(arr);
+//	int i = 0;
+//	for (i = 0; i < len; i++)
+//	{
+//		//if (arr[i] >= 'a' && arr[i] <= 'z')
+//		if(islower(arr[i]))
+//		{
+//			//arr[i] -= 32;
+//			arr[i] = toupper(arr[i]);
+//		}
+//	}
+//	printf("%s", arr);
+//	return 0;
+//}
+
+
+//// strlen example
+//int main()
+//{
+//	size_t len = strlen("abcdfr");
+//	printf("%zu\n", len);
+//	return 0;
+//}
+
+
+//// simulated implementation of strlen
+//#include <assert.h>
+//size_t my_strlen(char *str)
+//{
+//	assert(str);
+//	int count = 0;
+//	while (*str)
+//	{
+//		str++;
+//		count++;
+//	}
+//	return count;
+//}
+int main()
+{
+	char arr[] = "abcdef";
+	size_t len = my_strlen(arr);
+	printf("%zu\n", len);
+	return 0;
+}
